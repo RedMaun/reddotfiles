@@ -1,0 +1,123 @@
+[colors]
+focused = #ff5555
+urgent = #f1fa8c
+foreground = #f8f8f2
+[bar/bar]
+bottom = false
+
+width = 100%
+height = 20
+
+background = #1a1a1a
+foreground = ${colors.foreground}
+
+radius = 0.0
+
+line-size = 1
+
+padding-left = 0 
+padding-right = 0
+
+module-margin = 0
+
+font-0 = terminus:pixelsize=12;2
+font-1 = terminus:style=bold:pixelsize=12;2
+
+modules-left = uzzer shell workspaces 
+modules-center = focused_window_title
+modules-right = keyboard volume date
+
+locale = en_US.UTF-8
+
+enable-ipc = true
+
+[settings]
+screenchange-reload = true
+
+[module/workspaces]
+type = internal/bspwm
+pin-workspaces = true
+inline-mode = false
+enable-click = false
+enable-scroll = false
+reverse-scroll = false
+format = <label-state> <label-mode>
+label-monitor = %name%
+label-dimmed-foreground = #3a3a3a
+label-dimmed-focused-background = #ffffff
+label-focused = " %name% "
+label-focused-foreground = #1a1a1a
+label-focused-background = #bcecff
+label-occupied = " %name% "
+label-occupied-background = #2a2a2a
+label-urgent = " %name% "
+label-urgent-foreground = #3a3a3a
+label-urgent-background = #2a2a2a
+label-empty = " %name% "
+label-empty-foreground = #4a4a4a
+
+[module/uzzer]
+type = custom/script
+format-font = 2
+exec = whoami
+format =  %{F#50fa7b}▮%{F-}%{F#1a1a1a}<label>%{F-}%{F#50fa7b}▮%{F-}
+format-background = 50fa7b
+format-foreground = 1a1a1a
+
+[module/shell]
+type = custom/text
+content = " $ "
+content-background = ff5555
+content-foreground = 1a1a1a
+
+[module/update]
+type = custom/script
+exec = ~/src/update.sh
+format = <label>
+format-background = #d3869b
+format-foreground = #262626
+interval = 1
+
+[module/keyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+format = %{F#2a2a2a}▮%{F-}%{F#f8f8f2}<label-layout>%{F-}%{F#2a2a2a}▮%{F-}
+format-background = 2a2a2a
+
+[module/focused_window_title]
+type = internal/xwindow
+label = %title%
+label-maxlen = 50
+label-foreground = f8f8f2
+
+[module/volume]
+type = internal/alsa
+
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+use-ui-max = false
+
+format-volume = %{F#ff79c6}▮%{F-}%{F#1a1a1a}<label-volume>%{F-}%{F#ff79c6}▮%{F-}
+format-volume-background = ff79c6
+format-volume-foreground = f8f8f2
+
+label-muted = %{F#ff79c6}▮%{F-}%{F#1a1a1a}muted%{F-}%{F#ff79c6}▮%{F-}
+label-muted-background = ff79c6
+label-muted-foreground = 1a1a1a
+
+
+[module/date]
+type = internal/date
+
+date = %a, %b %e
+date-alt = %A, %B %e, %Y
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+label = %{F#32302f} %date% | %time% %{F-}
+label-background=bd93f9
+label-foreground=1a1a1a
+
