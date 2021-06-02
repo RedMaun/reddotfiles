@@ -54,16 +54,9 @@ hwclock --systohc
 
 sudo -u $username git config --global credential.helper store
 
-amixer sset Master unmute
-echo "options snd_usb_audio index=1" /etc/modprobe.d/alsa.conf
-sudo -u $username echo "defaults.ctl.card 1;
-defaults.pcm.card 1;" > /home/$username/.asoundrc
+systemctl enable pulseaudio.service
 
 echo "$hostname" > /etc/hostname
-
-cd /home/$username/reddotfiles/st 
-make clean install
-cd -
 
 sudo -u $username echo "exec bspwm" > /home/$username/.xinitrc
 
