@@ -23,13 +23,7 @@ read pass
 
 systemctl enable NetworkManager.service
 systemctl start NetworkManager.service
-sleep 3
-a = $(nmcli device wifi list | wc -l)
-while [ $a < 3 ]
-do 
-a = $(nmcli device wifi list | wc -l)
-sleep 1
-done
+nmcli device wifi list
 nmcli device wifi connect $ssid password $pass
 dhcpcd
 reboot
