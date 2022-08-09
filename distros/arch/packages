@@ -1,1 +1,1 @@
-go pulseaudio materia-gtk-theme papirus-icon-theme htop picom hsetroot fontconfig xorg xorg-server xorg-xinit zsh bspwm sxhkd flameshot dmenu firefox alsa alsa-utils pacman-contrib
+go pulseaudio materia-gtk-theme papirus-icon-theme htop picom thunar thunar-archive-plugin thunar-volman hsetroot fontconfig xorg xorg-server xorg-xinit zsh blueberry xorg-xinput flameshot dmenu pacman-contrib
